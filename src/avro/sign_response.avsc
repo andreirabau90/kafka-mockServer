@@ -1,0 +1,66 @@
+{
+  "type": "record",
+  "name": "SignResponseV2",
+  "namespace": "ru.tinkoff.sme.cryptobpm.responses",
+  "fields": [
+    {
+      "name": "requestId",
+      "type": "string",
+      "doc": "Уникальный идентификатор запроса"
+    },
+    {
+      "name": "system",
+      "type": "string"
+    },
+    {
+      "name": "success",
+      "type": "boolean"
+    },
+    {
+      "name": "error",
+      "type": [
+        "null",
+        {
+          "type": "record",
+          "name": "ErrorDescription",
+          "fields": [
+            {
+              "name": "errorCode",
+              "type": "string"
+            },
+            {
+              "name": "errorMessage",
+              "type": [
+                "null",
+                "string"
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "signatures",
+      "type": [
+        "null",
+        {
+          "type": "array",
+          "items": {
+            "type": "record",
+            "name": "FileRef",
+            "fields": [
+              {
+                "name": "fileId",
+                "type": "string"
+              },
+              {
+                "name": "uri",
+                "type": "string"
+              }
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

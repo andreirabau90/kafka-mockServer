@@ -1,0 +1,19 @@
+{
+    "namespace": "com.example.demokafkaproducer.model",
+    "type": "record",
+    "name": "MessageNewType",
+    "fields": [
+        {
+            "name": "name",
+            "type": "string"
+        },
+        {
+            "name": "data",
+            "type": "int"
+        },
+        {
+            "name": "age",
+            "type": "long"
+        }
+    ]
+}

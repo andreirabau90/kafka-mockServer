@@ -1,0 +1,11 @@
+{
+  "name": "UnknownEvent",
+  "type": "record",
+  "namespace": "ru.tinkoff.bpm.pledge.submission.registration.process",
+  "fields": [
+    {
+      "name": "data",
+      "type": "string"
+    }
+  ]
+}

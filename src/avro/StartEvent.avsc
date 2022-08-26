@@ -1,0 +1,72 @@
+{
+  "type": "record",
+  "name": "StartEvent",
+  "namespace": "ru.tinkoff.bpm.pledge.submission.registration.process",
+  "fields": [
+    {
+      "name": "applicationIntegrationId",
+      "type": {
+        "type": "string",
+        "avro.java.string": "String"
+      }
+    },
+    {
+      "name": "submissionType",
+      "type": {
+        "type": "string",
+        "avro.java.string": "String"
+      }
+    },
+    {
+      "name": "submissionId",
+      "type": "string"
+    },
+    {
+      "name": "additionalFields",
+      "type": [
+        "null",
+        {
+          "name": "AdditionalFields",
+          "type": "record",
+          "fields": [
+            {
+              "name": "kuvd",
+              "type": [
+                "null",
+                {
+                  "type": "string",
+                  "avro.java.string": "String"
+                }
+              ],
+              "default": null
+            },
+            {
+              "name": "sendDate",
+              "type": ["null", "long"],
+              "logicalType": "local-timestamp-millis",
+              "default": null
+            },
+            {
+              "name": "mortgageRegDate",
+              "type": ["null", "long"],
+              "logicalType": "local-timestamp-millis",
+              "default": null
+            },
+            {
+              "name": "mortgageRegNumber",
+              "type": [
+                "null",
+                {
+                  "type": "string",
+                  "avro.java.string": "String"
+                }
+              ],
+              "default": null
+            }
+          ]
+        }
+      ],
+      "default": null
+    }
+  ]
+}

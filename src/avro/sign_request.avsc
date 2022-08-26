@@ -1,0 +1,183 @@
+{
+  "type": "record",
+  "name": "SignRequestV2",
+  "namespace": "ru.tinkoff.sme.cryptobpm.requests",
+  "fields": [
+    {
+      "name": "requestId",
+      "type": "string",
+      "doc": "Уникальный идентификатор запроса"
+    },
+    {
+      "name": "signer",
+      "type": [
+        {
+          "type": "record",
+          "name": "Individual",
+          "fields": [
+            {
+              "name": "innFl",
+              "type": "string"
+            },
+            {
+              "name": "snils",
+              "type": [
+                "null",
+                "string"
+              ],
+              "default": null
+            }
+          ]
+        },
+        {
+          "type": "record",
+          "name": "Entrepreneur",
+          "fields": [
+            {
+              "name": "innFl",
+              "type": "string"
+            },
+            {
+              "name": "ogrnip",
+              "type": "string"
+            },
+            {
+              "name": "snils",
+              "type": [
+                "null",
+                "string"
+              ],
+              "default": null
+            }
+          ]
+        },
+        {
+          "type": "record",
+          "name": "Entity",
+          "fields": [
+            {
+              "name": "innUl",
+              "type": "string"
+            },
+            {
+              "name": "ogrn",
+              "type": [
+                "null",
+                "string"
+              ],
+              "default": null
+            },
+            {
+              "name": "snils",
+              "type": [
+                "null",
+                "string"
+              ],
+              "default": null
+            }
+          ]
+        }
+      ],
+      "doc": "Идентификаторы КЭПа подписанта"
+    },
+    {
+      "name": "system",
+      "type": "string",
+      "doc": "Уникальный идентификатор бизнес-процесса или вызывающей системы"
+    },
+    {
+      "name": "withoutConfirmation",
+      "type": [
+        "null",
+        "boolean"
+      ],
+      "default": null
+    },
+    {
+      "name": "selectStrategy",
+      "type": {
+        "type": "enum",
+        "name": "SelectStrategy",
+        "symbols": [
+          "OLDEST_FIRST",
+          "NEWEST_FIRST"
+        ],
+        "default": "OLDEST_FIRST"
+      },
+      "doc": "Стратегия выбора сертификата при наличии нескольких действующих"
+    },
+    {
+      "name": "rosreestrCompatible",
+      "type": "boolean",
+      "doc": "Требуется наличие OID-ов для Росреестра",
+      "default": false
+    },
+    {
+      "name": "useMyDssSdk",
+      "type": "boolean",
+      "doc": "Флаг для использования SDK",
+      "default": false
+    },
+    {
+      "name": "signatureType",
+      "type": {
+        "type": "enum",
+        "name": "SignatureType",
+        "symbols": [
+          "BES_DETACHED",
+          "BES_ENVELOPED",
+          "CO_SIGN",
+          "XML_ENVELOPED"
+        ],
+        "default": "BES_DETACHED"
+      },
+      "doc": "Тип подписи"
+    },
+    {
+      "name": "files",
+      "type": {
+        "type": "array",
+        "items": {
+          "type": "record",
+          "name": "FileRef",
+          "fields": [
+            {
+              "name": "fileId",
+              "type": "string"
+            },
+            {
+              "name": "uri",
+              "type": "string"
+            },
+            {
+              "name": "signatureUri",
+              "type": [
+                "null",
+                "string"
+              ],
+              "default": null
+            },
+            {
+              "name": "meta",
+              "type": [
+                "null",
+                {
+                  "type": "record",
+                  "name": "FileMeta",
+                  "fields": [
+                    {
+                      "name": "fileName",
+                      "type": "string"
+                    }
+                  ]
+                }
+              ],
+              "default": null
+            }
+          ]
+        }
+      },
+      "doc": "Список ссылок на файлы для подписи"
+    }
+  ]
+}

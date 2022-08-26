@@ -1,0 +1,28 @@
+{
+  "type": "record",
+  "name": "StartEvent",
+  "namespace": "ru.tinkoff.bpm.pledge.mortgage",
+  "fields": [
+    {
+      "name": "appIntId",
+      "type": "string"
+    },
+    {
+      "name": "parentIntId",
+      "type": [
+        "null",
+        {
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "name": "pledgeIntId",
+      "type": "string"
+    },
+    {
+      "name": "partnerId",
+      "type": "int"
+    }
+  ]
+}

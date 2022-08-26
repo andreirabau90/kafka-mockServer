@@ -1,0 +1,11 @@
+spring:
+  main:
+   banner-mode: off
+  kafka:
+    bootstrap-servers: http://localhost:9092
+    properties:
+      schema.registry.url: http://localhost:8081
+    producer:
+      value-serializer: io.confluent.kafka.serializers.KafkaAvroSerializer
+server:
+  port: 8094

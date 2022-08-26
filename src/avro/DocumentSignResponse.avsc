@@ -1,0 +1,86 @@
+{
+  "name": "DocumentSignResponse",
+  "type": "record",
+  "namespace": "ru.tinkoff.bpm.topdsssigningprocess.model.sign",
+  "fields": [
+    {
+      "name": "requestId",
+      "type": "string",
+      "logicalType": "uuid"
+    },
+    {
+      "name": "system",
+      "type": "string"
+    },
+    {
+      "name": "submissionId",
+      "type": "string"
+    },
+    {
+      "name": "signingSide",
+      "type": {
+        "type": "enum",
+        "name": "SigningSide",
+        "symbols": [
+          "CLIENT",
+          "BANK"
+        ]
+      }
+    },
+    {
+      "name": "success",
+      "type": "boolean"
+    },
+    {
+      "name": "description",
+      "type": [
+        "null",
+        "string"
+      ],
+      "default": null
+    },
+    {
+      "name": "documents",
+      "type": {
+        "type": "array",
+        "items": {
+          "type": "record",
+          "name": "SignedDocument",
+          "fields": [
+            {
+              "name": "type",
+              "type": {
+                "type": "enum",
+                "name": "SignedDocumentType",
+                "symbols": [
+                  "MORTGAGE_AGREEMENT",           // Договор ипотеки
+                  "APPLICATION_FORM",             // Заявление-анкета
+                  "INDIVIDUAL_CONDITIONS",        // Индивидуальные условия
+                  "CLIENT_APPLICATION_ROSREESTR", // XML заявления клиента в Росреестр
+                  "BANK_APPLICATION_ROSREESTR",   // XML заявления банка в Росреестр
+                  "CONTAINER_DESCRIPTION"         // Описание контейнера в Росреестр
+                ]
+              }
+            },
+            {
+              "name": "documentUri",
+              "type": [
+                "null",
+                "string"
+              ],
+              "default": null
+            },
+            {
+              "name": "signatureUri",
+              "type": [
+                "null",
+                "string"
+              ],
+              "default": null
+            }
+          ]
+        }
+      }
+    }
+  ]
+}
